@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    // для абсолютного импорта
+    // "." - текущая папка
+    "baseUrl": ".",
+    "paths": {
+      // все импорты/экспорты абсолютные будут идти из папки "src"
+      "*": ["./src/*"]
+    },
+    // куда произодится cборка
+    "outDir": "./build/",
+    // не позволяет использовать переменнеы без явного указания типа
+    "noImplicitAny": true,
+    // модульная система какая используется
+    "module": "esnext",
+    // версия ES, в которую исходный код будет компилироваться
+    "target": "es5",
+    "jsx": "react-jsx",
+    // разрешает и js и ts файйлы
+    "allowJs": true,
+    // определяет какие импорты будут (в 99% - node, 1% - classic)
+    "moduleResolution": "node",
+    // esModuleInterop позволяет работать с модулями, которые используют commonjs,
+    // так и с обычными пакетами, с помощью import
+    "esModuleInterop": true,
+    // позволяет использовать import без *
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
