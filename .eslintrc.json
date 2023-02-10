@@ -1,0 +1,58 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "standard-with-typescript",
+    "plugin:react-hooks/recommended"
+  ],
+  "globals": { "__IS_DEV": true },
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "settings": {
+    "react": {
+      "version": "^17.0.2"
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "indent": [0, 2],
+    "quote-props": [1, "as-needed"],
+    "comma-dangle": "off",
+    "semi": "off",
+    "linebreak-style": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": "off",
+    "react/jsx-filename-extension": "off",
+    "react/function-component-definition": "off",
+    "import/no-unresolved": "off",
+    "no-trailing-spaces": ["error", { "ignoreComments": true }],
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        "allowExpressions": false,
+        "allowTypedFunctionExpressions": true,
+        "allowHigherOrderFunctions": true,
+        "allowDirectConstAssertionInArrowFunctions": true,
+        "allowConciseArrowFunctionExpressionsStartingWithVoid": false,
+        "allowedNames": []
+      }
+    ],
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": 1,
+    "@typescript-eslint/no-floating-promises": 1,
+    "@typescript-eslint/naming-convention": 1,
+    "no-underscore-dangle": "off"
+  }
+}

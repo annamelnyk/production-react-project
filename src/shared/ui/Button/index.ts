@@ -1,4 +1,4 @@
 import {
   Button,
-  ThemeButton,
-} from "./Button";
+  ThemeButton
+} from './Button'

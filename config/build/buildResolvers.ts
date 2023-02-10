@@ -1,10 +1,10 @@
-import { ResolveOptions } from "webpack";
+import { type ResolveOptions } from 'webpack'
 
-import { BuildOptions } from './types/config';
+import { type BuildOptions } from './types/config'
 
 // A resolver is a library which helps in locating a module by its absolute path
 // resolvers согласует webpak с тем, что указано в tsconfig
-export function buildResolvers(options: BuildOptions): ResolveOptions {
+export function buildResolvers (options: BuildOptions): ResolveOptions {
   return {
     extensions: ['.tsx', '.ts', '.js'],
     preferAbsolute: true,
