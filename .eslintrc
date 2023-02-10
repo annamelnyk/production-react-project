@@ -6,7 +6,8 @@
   "extends": [
     "plugin:react/recommended",
     "standard-with-typescript",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:i18next/recommended"
   ],
   "globals": { "__IS_DEV": true },
   "overrides": [],
@@ -16,7 +17,11 @@
     "sourceType": "module",
     "project": ["./tsconfig.json"]
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "i18next"
+  ],
   "settings": {
     "react": {
       "version": "^17.0.2"
@@ -53,6 +58,7 @@
     "@typescript-eslint/no-unused-vars": 1,
     "@typescript-eslint/no-floating-promises": 1,
     "@typescript-eslint/naming-convention": 1,
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "i18next/no-literal-string": [2, { "markupOnly": true }]
   }
 }
