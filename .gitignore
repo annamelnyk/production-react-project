@@ -5,3 +5,4 @@ node_modules
 .history/
 REACT.md 
 CONFIG.md
+package-lock.json
