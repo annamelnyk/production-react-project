@@ -4,7 +4,11 @@ import { useTranslation } from 'react-i18next'
 const AboutPage = () => {
   const { t } = useTranslation()
 
-  return <div>{t('About page')}</div>
+  return (
+    <div>
+      <h1>{t('About page')}</h1>
+    </div>
+  )
 }
 
 export default AboutPage

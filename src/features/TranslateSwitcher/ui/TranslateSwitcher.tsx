@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 
 import { Button } from 'shared/ui/Button/Button'
 import { classNames } from 'shared/lib/classNames'
-import css from './TranslateSwitcher.module.scss'
 
 interface TranslateSwitcherProps {
   className?: string
@@ -35,7 +34,7 @@ export const TranslateSwitcher = (props: TranslateSwitcherProps) => {
 
   return (
         <Button
-            className={classNames(css.TranslateSwitcher, ['clear'])}
+            className={classNames('', ['clear'])}
             onClick={changeLocaleHandler}
         >
             {locale}
