@@ -4,5 +4,8 @@
   "Main page": "Главная страница",
   "About page": "O нас",
   "Toggle": "Переключить",
-  "Not Found Page": "Страница не найдена"
+  "Not Found Page": "Страница не найдена",
+  "Reload page": "Обновить страницу",
+  "Set error": "Генерация ошибки",
+  "Something went wrong": "Что-то пошло не так..."
 }
