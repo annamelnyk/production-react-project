@@ -18,6 +18,7 @@ export const Button: FC<ButtonProps> = (props) => {
 
   return (
     <button
+      data-testid="button"
       className={classNames(css.Button, [className, css[theme]])}
       onClick={onClick}
       {...otherProps}

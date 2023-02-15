@@ -8,6 +8,7 @@ import {
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 // import ReactRefreshWebpackPlugin from 'react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 import { type BuildOptions } from './types/config'
 
@@ -31,7 +32,11 @@ export function buildPlugins ({
     new DefinePlugin({
       __IS_DEV: JSON.stringify(isDev)
     }),
-    new HotModuleReplacementPlugin()
+    new HotModuleReplacementPlugin(),
     // new ReactRefreshWebpackPlugin(),
+    // Visualize size of webpack output files 
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false
+    })
   ]
 }
