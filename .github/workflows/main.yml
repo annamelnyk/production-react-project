@@ -11,9 +11,9 @@ jobs:
   strategy:
     matrix:
       node-version: [ 16.x ]
-
     steps:
-    - uses: actions/checkout@v2
+    - name: checkout code
+      uses: actions/checkout@v2
     - name: Staring Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
