@@ -11,7 +11,8 @@
     "plugin:i18next/recommended",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-typescript"
   ],    
   "globals": { "__IS_DEV": true },
   "overrides": [],
@@ -19,7 +20,7 @@
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": ["tsconfig.json"]
+    "project": "tsconfig.json"
   },
   "plugins": [
     "react",

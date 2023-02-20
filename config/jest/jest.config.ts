@@ -2,7 +2,7 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
-import path from "path"
+import path from 'path';
 
 export default {
   clearMocks: true,
@@ -17,20 +17,20 @@ export default {
     'ts',
     'tsx',
     'json',
-    'node'
+    'node',
   ],
   modulePaths: ['<rootDir>/src'],
   rootDir: '../../',
   setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
   roots: ['<rootDir>/src'],
   testMatch: [
-    '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)'
+    '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
   ],
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
   moduleNameMapper: {
     '\\.(s?css)$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
-  }
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+  },
 
   // collectCoverage: true,
   // All imported modules in your tests should be mocked automatically
@@ -171,4 +171,4 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-}
+};

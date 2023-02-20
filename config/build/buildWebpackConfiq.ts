@@ -1,16 +1,16 @@
-import { type Configuration } from 'webpack'
-import path from 'path'
+import { type Configuration } from 'webpack';
+import path from 'path';
 
-import { buildPlugins } from './buildPlugin'
-import { buildLoaders } from './buildLoaders'
-import { buildResolvers } from './buildResolvers'
-import { buildDevServer } from './buildDevServer'
+import { buildPlugins } from './buildPlugin';
+import { buildLoaders } from './buildLoaders';
+import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer';
 
-import { type BuildOptions } from './types/config'
+import { type BuildOptions } from './types/config';
 
-export function buildWebpackConfig (options: BuildOptions): Configuration {
-  const { mode, paths, isDev } = options
-  const isModeDevelopment = mode === 'development'
+export function buildWebpackConfig(options: BuildOptions): Configuration {
+  const { mode, paths, isDev } = options;
+  const isModeDevelopment = mode === 'development';
 
   return {
     mode,
@@ -21,10 +21,10 @@ export function buildWebpackConfig (options: BuildOptions): Configuration {
       // (иначе вебпак достанет из кеша прежнюю версию)
       filename: '[name][contenthash].js',
       // очищает от более неактуальных сгенерированных файлов
-      clean: true
+      clean: true,
     },
     module: {
-      rules: buildLoaders(options)
+      rules: buildLoaders(options),
     },
     // указываем типы файлов, при импорте которых мы не будем указывать расширения. За это отвечают resolve -> extentions
     resolve: buildResolvers(options),
@@ -35,8 +35,8 @@ export function buildWebpackConfig (options: BuildOptions): Configuration {
     // (карта исходного кода) - нужны в процессе разработки. Без source-map при ошибке в коде, ссылка будет на bundle файл, а с ними 
     // - на определенный, конкретный файл, в котором произошла ошибка. Необходимый инструмент для debugging.
     devtool: isDev ? 'inline-source-map' : undefined,
-    devServer: isDev ? buildDevServer(options) : undefined
-  }
+    devServer: isDev ? buildDevServer(options) : undefined,
+  };
 
   // LOADERS: Loaders are transformations that are applied to the source code of a module.
   // They allow you to pre-process files as you import or “load” them.

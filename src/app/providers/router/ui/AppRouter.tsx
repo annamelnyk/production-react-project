@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import React, { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import { RouteConfig } from 'shared/config/routeConfig/routeConfig'
-import { LoaderPage } from 'widgets/LoaderPage'
+import { RouteConfig } from 'shared/config/routeConfig/routeConfig';
+import { LoaderPage } from 'widgets/LoaderPage';
 
 export const AppRouter = () => {
   return (
@@ -13,5 +13,5 @@ export const AppRouter = () => {
                 ))}
             </Routes>
         </Suspense>
-  )
-}
+  );
+};

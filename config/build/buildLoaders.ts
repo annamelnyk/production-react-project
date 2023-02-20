@@ -1,17 +1,17 @@
-import { type RuleSetRule } from 'webpack'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { type RuleSetRule } from 'webpack';
 
-import { type BuildOptions } from './types/config'
+import { type BuildOptions } from './types/config';
+import buildCssLoader from './loaders/buildCssLoader';
 
-export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   // Если не используем тайпскрипт, то нужен babel-loader
   const typeScriptLoader = {
     // указываем расширения файлов, котрые нужно пропустить через loader
     test: /\.tsx?$/,
     // указываем loader, через который необходимо прогонять наши файлы, оторбранные по расширению
     use: 'ts-loader',
-    exclude: /node_modules/
-  }
+    exclude: /node_modules/,
+  };
 
   const svgLoader = {
     test: /\.svg$/,
@@ -19,39 +19,17 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
       {
         issuer: /\.[jt]sx?$/,
         resourceQuery: { not: [/url/] },
-        use: ['@svgr/webpack']
-      }
-    ]
-  }
+        use: ['@svgr/webpack'],
+      },
+    ],
+  };
 
   // const fileLoader =  {
   //   test: /\.(png|jpe?g|gif)$/i,
   //   type: 'asset/resource'
   // };
 
-  const styleLoader = {
-    test: /\.(sa|sc|c)ss$/,
-    use: [
-      // Creates `style` nodes from JS strings
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      // Translates CSS into CommonJS
-      {
-        loader: 'css-loader',
-        options: {
-          modules: {
-            auto: Boolean((resourcePath: string) =>
-              Boolean(resourcePath.includes('.module.'))
-            ),
-            localIdentName: isDev
-              ? '[path][name]__[local]--[hash:base64:5]'
-              : '[hash:base64:8]'
-          }
-        }
-      },
-      // Compiles Sass to CSS
-      'sass-loader'
-    ]
-  }
+  const styleLoader = buildCssLoader(isDev);
 
   const babelLoader = {
     test: /\.m?(js|jsx|ts|tsx)$/,
@@ -65,13 +43,13 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
             'i18next-extract',
             {
               locales: ['en', 'ru'],
-              keyAsDefaultValue: true
-            }
-          ]
-        ]
-      }
-    }
-  }
+              keyAsDefaultValue: true,
+            },
+          ],
+        ],
+      },
+    },
+  };
 
   // Важно добавлять Loaders в нужном порядке
   return [
@@ -79,6 +57,6 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
     // babelLoader must be before typeScriptLoader
     babelLoader,
     typeScriptLoader,
-    styleLoader
-  ]
+    styleLoader,
+  ];
 }

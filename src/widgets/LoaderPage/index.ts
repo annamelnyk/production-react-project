@@ -1,1 +1,1 @@
-export { LoaderPage } from './ui/LoaderPage'
+export { LoaderPage } from './ui/LoaderPage';

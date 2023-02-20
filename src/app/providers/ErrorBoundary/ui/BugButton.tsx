@@ -1,22 +1,22 @@
-import { useState, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { Button } from 'shared/ui/Button/Button'
+import { Button } from 'shared/ui/Button/Button';
 
 // Component for testing ErrorBoundary
 export const BugButton = () => {
-  const { t } = useTranslation()
-  const [error, setError] = useState(false)
+  const { t } = useTranslation();
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     if (error) {
-      throw new Error()
+      throw new Error();
     }
-  }, [error])
+  }, [error]);
 
   const throwError = () => {
-    setError(true)
-  }
+    setError(true);
+  };
 
-  return <Button onClick={throwError}>{t('Set error')}</Button>
-}
+  return <Button onClick={throwError}>{t('Set error')}</Button>;
+};

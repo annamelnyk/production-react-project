@@ -1,4 +1,4 @@
 export {
   Button,
-  ThemeButton
-} from './Button'
+  ThemeButton,
+} from './Button';
