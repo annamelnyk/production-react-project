@@ -10,6 +10,7 @@ interface NavbarProps {
   className?: string
 }
 
+// Test comment
 export const Navbar = (props: NavbarProps) => {
   const { t, i18n } = useTranslation();
 
