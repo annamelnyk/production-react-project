@@ -7,7 +7,8 @@ import {
 } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-// import ReactRefreshWebpackPlugin from 'react-refresh-webpack-plugin';
+// import ReactRefreshWebpackPlugin from 'react-refresh-webpack-plugin'
+// Visualize size of webpack output files;
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { type BuildOptions } from './types/config';
@@ -16,7 +17,7 @@ export function buildPlugins({
   paths,
   isDev,
 }: BuildOptions): WebpackPluginInstance[] {
-  return [
+  const plugins = [
     // сообщаем вебпаку, где лежит index.html, и куда нужно вставлять наши js скрипты
     new HtmlWebpackPlugin({
       template: paths.html,
@@ -32,11 +33,15 @@ export function buildPlugins({
     new DefinePlugin({
       __IS_DEV: JSON.stringify(isDev),
     }),
-    new HotModuleReplacementPlugin(),
-    // new ReactRefreshWebpackPlugin(),
-    // Visualize size of webpack output files 
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
+    // new ReactRefreshWebpackPlugin(), 
   ];
+
+  if (isDev) {
+    plugins.push(new HotModuleReplacementPlugin());
+    plugins.push(new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }));
+  };
+
+  return plugins; 
 }
